@@ -24,6 +24,11 @@ Function Send-Pushbullet
         Send-Pushbullet -APIKey "XXXXXX" -Title "Hey there" -Message "Are you here?" -ContactEmail "user@example.com"
 
         Send a message to a remote user.
+    
+    .EXAMPLE
+        Send-Pushbullet -APIKey "XXXXXX" -Title "Hello World" -Message "This is a test of the notification service." -ChannelTag "MadeUpChannelTag"
+        
+        Send a message to a Channel that you own.
     #>
     param([Parameter(Mandatory=$True)][string]$APIKey=$(throw "APIKey is mandatory, please provide a value."), [Parameter(Mandatory=$True)][string]$Title=$(throw "Title is mandatory, please provide a value."), [string]$Message="", [string]$Link="", [string]$DeviceIden="", [string]$ContactEmail="", [string]$ChannelTag="")
 
