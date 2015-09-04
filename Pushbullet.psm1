@@ -25,7 +25,7 @@ Function Send-Pushbullet
 
         Send a message to a remote user.
     #>
-    param([Parameter(Mandatory=$True)][string]$APIKey=$(throw "APIKey is mandatory, please provide a value."), [Parameter(Mandatory=$True)][string]$Title=$(throw "Title is mandatory, please provide a value."), [string]$Message="", [string]$Link="", [string]$DeviceIden="", [string]$ContactEmail="")
+    param([Parameter(Mandatory=$True)][string]$APIKey=$(throw "APIKey is mandatory, please provide a value."), [Parameter(Mandatory=$True)][string]$Title=$(throw "Title is mandatory, please provide a value."), [string]$Message="", [string]$Link="", [string]$DeviceIden="", [string]$ContactEmail="", [string]$ChannelTag="")
 
     if($Link -ne "")
     {
@@ -36,6 +36,7 @@ Function Send-Pushbullet
             url = $Link
             device_iden = $DeviceIden
             email = $ContactEmail
+            channel_tag = $ChannelTag
         }
     }
     else
@@ -46,6 +47,7 @@ Function Send-Pushbullet
             body = $Message
             device_iden = $DeviceIden
             email = $ContactEmail
+            channel_tag = $ChannelTag
         }
     }
 
